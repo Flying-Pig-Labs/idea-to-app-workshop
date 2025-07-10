@@ -4,7 +4,7 @@
 
 ![Time](https://img.shields.io/badge/⏱️_Time-15_minutes-blue?style=for-the-badge)
 ![Difficulty](https://img.shields.io/badge/📊_Level-Beginner-green?style=for-the-badge)
-![Tools](https://img.shields.io/badge/🛠️_Tools-Google_Sheets_+_Zapier-orange?style=for-the-badge)
+![Tools](https://img.shields.io/badge/🛠️_Tools-Google_Sheets_+_Make-orange?style=for-the-badge)
 
 </div>
 
@@ -19,7 +19,7 @@
    - [Column Headers](#-define-your-columns) - Essential fields
    - [Data Validation](#-pro-data-setup) - Format protection
 
-2. **[Build Your Pipeline](#-part-ii-zapier-automation-magic)** (8 min)
+2. **[Build Your Pipeline](#-part-ii-make-automation-magic)** (8 min)
    - [Create Webhook](#-create-your-webhook-4-min) - Your API endpoint
    - [Connect to Sheet](#-connect-the-dots-4-min) - Link automation
    - [Field Mapping](#-map-your-data-flow) - Connect the fields
@@ -282,9 +282,9 @@ Time to build the backend that will capture every lead while you sleep. No codin
 <details>
 <summary><b>📋 The Triple Check</b></summary>
 
-**1. Zapier shows success:**
+**1. Make shows success:**
 ```
-✓ Test trigger successful
+✓ Test scenario successful
 ✓ Found new data
 ✓ Test action successful
 ```
@@ -295,10 +295,10 @@ Time to build the backend that will capture every lead while you sleep. No codin
 - Name appears correctly
 - Source says "Lovable App"
 
-**3. Zap is turned ON:**
-- Toggle switch at top = ON
-- Status shows "On"
-- Not "Paused" or "Off"
+**3. Scenario is turned ON:**
+- Toggle switch at bottom left = ON
+- Status shows "Active"
+- Not "Inactive" or "Off"
 
 </details>
 
@@ -369,16 +369,16 @@ Plan Interest | Current Tool | Team Size
 <summary><b>🔍 Understanding Your Webhook</b></summary>
 
 ```
-https://hooks.zapier.com/hooks/catch/123456/abc7def/
-         ↑                    ↑       ↑       ↑
-     Zapier domain         Hook type  Your ID  Unique token
+https://hook.eu1.make.com/abc123xyz456
+         ↑                     ↑
+     Make domain         Unique webhook ID
 ```
 
 **Security notes:**
 - Anyone with URL can send data
 - Don't share publicly
 - Can't be changed once created
-- One URL per Zap trigger
+- One URL per webhook module
 
 **Rate limits (free tier):**
 - 100 tasks/month
@@ -436,13 +436,13 @@ https://hooks.zapier.com/hooks/catch/123456/abc7def/
 - **Name:** [YourApp] Signups
 - **Columns:** Timestamp | Email | Name | Source | Message
 
-## Zapier Webhook
+## Make Webhook
 - **Webhook URL:** [paste webhook URL]
-- **Zap Name:** [YourApp] Email Capture
+- **Scenario Name:** [YourApp] Email Capture
 - **Created:** [today's date]
 
 ## Field Mapping
-- Timestamp → {{zap_meta_human_now}}
+- Timestamp → {{now}}
 - Email → {{email}}
 - Name → {{name}}
 - Source → "Lovable App"
@@ -465,9 +465,9 @@ https://hooks.zapier.com/hooks/catch/123456/abc7def/
 - [ ] **Google Sheet created** with proper name
 - [ ] **Headers added** (Timestamp, Email, Name, Source)
 - [ ] **Webhook URL copied** and saved securely
-- [ ] **Field mapping complete** in Zapier
+- [ ] **Field mapping complete** in Make
 - [ ] **Test data appears** in Google Sheet
-- [ ] **Zap is turned ON** (not paused!)
+- [ ] **Scenario is turned ON** (not inactive!)
 - [ ] **Documentation saved** for reference
 - [ ] **Webhook URL ready** for Step 4
 

@@ -43,8 +43,8 @@
 ### 🔧 Required Information:
 
 1. **Your Webhook URL** (from Step 4)
-   - Format: `https://hooks.zapier.com/hooks/catch/123456/abc7def/`
-   - Copy it from your Zapier dashboard
+   - Format: `https://hook.eu1.make.com/abc123xyz456`
+   - Copy it from your Make scenario
 
 2. **Form Field Names** 
    - Currently in your Lovable site (check the form component)
@@ -82,7 +82,7 @@ Current form fields:
 - Work Email (or Email)
 - Company Name (or Company)
 
-I need to integrate this Zapier webhook:
+I need to integrate this Make webhook:
 [PASTE YOUR WEBHOOK URL HERE]
 
 Please create a Lovable prompt that will:
@@ -90,7 +90,7 @@ Please create a Lovable prompt that will:
 2. Send data as JSON to the webhook
 3. Keep all existing design and functionality
 4. Add proper error handling (visible to user, but supress CORS complaints) and success feedback (Ensure the success message displays prominently after form submission and clears the form fields).
-5. Ensure the JSON keys match what Zapier expects
+5. Ensure the JSON keys match what Make expects
 
 The update should be minimal and focused only on the webhook integration.
 ```
@@ -124,8 +124,8 @@ The update should be minimal and focused only on the webhook integration.
    - Fill with test data
    - Submit form
    - See success message
-4. **Verify** in Zapier dashboard:
-   - Check webhook received data
+4. **Verify** in Make dashboard:
+   - Check scenario execution history
    - Confirm JSON format is correct
 5. **Google Sheets** shows new test entries
 
@@ -139,7 +139,7 @@ The update should be minimal and focused only on the webhook integration.
 1. **Happy Path**
    - All fields filled correctly
    - Submit successfully
-   - Data appears in Zapier
+   - Data appears in Make
 
 2. **Validation Testing**
    - Invalid email format
@@ -172,12 +172,12 @@ Company: 国际公司
 <details>
 <summary><b>🚨 Common Webhook Issues</b></summary>
 
-### Form Submits but No Data in Zapier
+### Form Submits but No Data in Make
 
 **Check these:**
 1. Webhook URL is exactly correct (no extra spaces)
-2. Zapier webhook is active (not paused)
-3. JSON keys match Zapier's expectations
+2. Make scenario is active (not inactive)
+3. JSON keys match Make's expectations
 4. Browser console for errors
 
 </details>
@@ -186,7 +186,7 @@ Company: 国际公司
 <summary><b>🛡️ Webhook Security Notes</b></summary>
 
 ### What's Safe
-- ✅ Zapier webhooks are SSL encrypted
+- ✅ Make webhooks are SSL encrypted
 - ✅ Data transmission is secure
 - ✅ No sensitive data is exposed in code
 
@@ -194,7 +194,7 @@ Company: 国际公司
 - Don't commit webhook URLs to public repos
 - Use environment variables in production
 - Rotate webhooks if compromised
-- Monitor webhook usage in Zapier
+- Monitor webhook usage in Make
 
 ### What NOT to Send
 - Passwords

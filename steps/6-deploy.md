@@ -46,7 +46,7 @@ Quick sweep before launch:
 
 📝 **Submit the form with test data** — confirm success message, no glitches
 
-🔄 **If you added backend logic** (e.g. Zapier), verify test data flowed through
+🔄 **If you added backend logic** (e.g. Make), verify test data flowed through
 
 📱 **Check the mobile view** for readability and tap targets
 

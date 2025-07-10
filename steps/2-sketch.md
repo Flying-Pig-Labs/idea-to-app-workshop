@@ -138,8 +138,8 @@ User lands on homepage
 User clicks "Get Started"
 User fills email form
 System validates email
-System sends to Zapier
-Zapier saves to Sheets
+System sends to Make
+Make saves to Sheets
 User sees success message
 ```
 
@@ -259,7 +259,7 @@ graph TB
     
     subgraph "🔗 External Services"
         M[📧 SendGrid<br/>Email Delivery]
-        N[⚡ Zapier<br/>Automation]
+        N[⚡ Make<br/>Automation]
         O[📊 Google Analytics<br/>Metrics]
     end
     
@@ -288,7 +288,7 @@ sequenceDiagram
     participant U as 👤 User
     participant F as 🌐 Frontend
     participant W as 🪝 Webhook
-    participant Z as ⚡ Zapier
+    participant Z as ⚡ Make
     participant D as 💾 Data Store
     participant E as 📧 Email Service
     
@@ -297,7 +297,7 @@ sequenceDiagram
     U->>F: Fills contact form
     F->>F: Validates input
     F->>W: POST form data
-    W->>Z: Triggers automation
+    W->>Z: Triggers scenario
     
     par Store Data
         Z->>D: Save to Sheets/Airtable
@@ -600,7 +600,7 @@ graph LR
     
     subgraph "Behind the Scenes"
         D[🪝 Webhook]
-        E[⚡ Zapier]
+        E[⚡ Make]
         F[(📊 Sheets)]
     end
     
@@ -622,7 +622,7 @@ gantt
     dateFormat mm:ss
     section Setup
     Create Sheet     :00:00, 2m
-    Setup Zapier     :02:00, 5m
+    Setup Make       :02:00, 5m
     section Build
     Landing Page     :07:00, 10m
     Email Form       :17:00, 8m
