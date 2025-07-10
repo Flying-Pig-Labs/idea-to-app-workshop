@@ -18,12 +18,12 @@
    - [Sheet Setup](#-create-your-data-vault) - Name & structure
    - [Column Headers](#-define-your-columns) - Essential fields
    - [Data Validation](#-pro-data-setup) - Format protection
-   
+
 2. **[Build Your Pipeline](#-part-ii-zapier-automation-magic)** (8 min)
    - [Create Webhook](#-create-your-webhook-4-min) - Your API endpoint
    - [Connect to Sheet](#-connect-the-dots-4-min) - Link automation
    - [Field Mapping](#-map-your-data-flow) - Connect the fields
-   
+
 3. **[Test Everything](#-part-iii-test-your-pipeline)** (4 min)
    - [Send Test Data](#-the-moment-of-truth) - Live validation
    - [Verify Flow](#-verify-the-magic) - End-to-end check
@@ -50,7 +50,7 @@
 <summary><b>📄 Click to Copy Full Template</b></summary>
 
 ```markdown
-You are a senior full-stack developer specializing in high-converting micro-SaaS applications. 
+You are a senior full-stack developer specializing in high-converting micro-SaaS applications.
 
 Your task is to build a complete, single-page lead generation landing page for [PRODUCT_NAME].
 
@@ -102,7 +102,7 @@ Time to build the backend that will capture every lead while you sleep. No codin
 1. **Navigate to** [sheets.google.com](https://sheets.google.com)
 2. **Click** the big **+** button (new spreadsheet)
 3. **Name it** immediately: `[YourApp] Signups`
-   
+
 <details>
 <summary><b>📝 Naming Best Practices</b></summary>
 
@@ -189,190 +189,87 @@ Time to build the backend that will capture every lead while you sleep. No codin
 
 ---
 
-## ⚡ Part II: Zapier Automation Magic
+## ⚡ Part II: Make Automation Magic
 
 > **⏰ Time:** 8 minutes  
 > **🎯 Goal:** Create the bridge between your app and database
 
 ### 🪝 Create Your Webhook (4 min)
 
-![Tool](https://img.shields.io/badge/🛠️_Tool-Zapier_Webhooks-purple?style=flat-square)
-![Tier](https://img.shields.io/badge/💳_Tier-Free_Plan_Works-brightgreen?style=flat-square)
+![Tool](https://img.shields.io/badge/🛠️_Tool-Make_Webhooks-purple?style=flat-square)
+![Tier](https://img.shields.io/badge/💳_Tier-Freemium-brightgreen?style=flat-square)
 
 **Step-by-step webhook creation:**
 
-1. **Go to** [zapier.com](https://zapier.com) → Create Zap
-2. **Name your Zap:** `[YourApp] Email Capture`
-3. **Choose Trigger:**
-   - App: **Webhooks by Zapier**
-   - Event: **Catch Hook**
-   - Continue → Continue (no setup needed)
-
-<details>
-<summary><b>🎯 Your Unique Webhook URL</b></summary>
-
-**You'll see something like:**
-```
-https://hooks.zapier.com/hooks/catch/123456/abc7def/
-```
-
-**⚠️ CRITICAL: Copy this URL immediately!**
-
-Save it in:
-- Your notes app
-- A new browser tab
-- Project documentation
-- Slack message to yourself
-
-You'll need this URL in Step 4!
-
-</details>
+## 💪 Workshop Instructions: Connect a Webhook to Google Sheets with Make.com
 
 ---
 
-### 🔗 Connect the Dots (4 min)
-
-![Step](https://img.shields.io/badge/📍_Step-Action_Setup-orange?style=flat-square)
-
-**Link Zapier to your Sheet:**
-
-1. **Add Action Step:**
-   - Choose app: **Google Sheets**
-   - Choose event: **Create Spreadsheet Row**
-   
-2. **Connect Google Account:**
-   - Sign in to Google
-   - Grant permissions
-   - Select your account
-
-3. **Configure the Connection:**
-   - Drive: **My Drive**
-   - Spreadsheet: **[YourApp] Signups**
-   - Worksheet: **Sheet1**
-
-<details>
-<summary><b>🚨 Can't Find Your Sheet?</b></summary>
-
-**Quick fixes:**
-1. Refresh the page
-2. Click "Load More" at bottom
-3. Search by exact name
-4. Make sure sheet isn't in a folder
-5. Try "Refresh Fields" button
-
-**Still not showing?**
-- Open sheet in new tab
-- Make any small edit
-- Save (Ctrl+S)
-- Return to Zapier
-- Refresh spreadsheet list
-
-</details>
+### ✅ Step 1: Create a Make.com Account
+1. Go to [https://make.com](https://make.com)
+2. Click **Sign Up** (top right)
+3. Sign up with Google (recommended) or email/password
+4. Once logged in, go to **Scenarios** → **Create new scenario**
 
 ---
 
-### 🗺️ Map Your Data Flow
+### ✅ Step 2: Add a Webhook Trigger
+1. Click the big **+** to add a module
+2. Search for **Webhook**
+3. Choose **Webhooks > Custom Webhook**
+4. Click **Add** → Name it something like `Receive Form Data`
+5. Click **Save** — a **Webhook URL** will be generated
+6. Click **Copy address to clipboard**
 
-![Critical](https://img.shields.io/badge/⚠️_Critical-Get_This_Right-red?style=flat-square)
-
-**Connect webhook data to sheet columns:**
-
-<details>
-<summary><b>📍 Field Mapping Reference</b></summary>
-
-| Sheet Column | Zapier Field | What It Looks Like |
-|--------------|--------------|-------------------|
-| **Timestamp** | `{{zap_meta_human_now}}` | 12/25/2024 15:30:45 |
-| **Email** | `{{email}}` | user@example.com |
-| **Name** | `{{name}}` | Jane Smith |
-| **Source** | Type: `Lovable App` | Lovable App |
-| **Message** | `{{message}}` | (optional) |
-
-**Visual guide:**
-```
-Timestamp: [Click field] → [Select "Zap Meta Human Now"]
-Email:     [Click field] → [Type "email" in search]
-Name:      [Click field] → [Type "name" in search]
-Source:    [Click field] → [Type manually: "Lovable App"]
-```
-
-</details>
-
-<details>
-<summary><b>⚡ Power User Shortcuts</b></summary>
-
-**Custom values you can use:**
-- `{{zap_meta_human_now}}` - Current date/time
-- `{{zap_meta_id}}` - Unique ID for each submission
-- `{{zap_meta_utc_iso}}` - UTC timestamp
-- Custom text like "Landing Page v2"
-
-**Advanced mapping:**
-```javascript
-// Combine fields
-{{name}} ({{email}})
-
-// Add prefixes
-New Lead: {{name}}
-
-// Default values
-{{message||(No message provided)}}
-```
-
-</details>
+> This is the URL you’ll send data to (from a form, script, or Postman).
 
 ---
 
-## 🧪 Part III: Test Your Pipeline
-
-> **⏰ Time:** 4 minutes  
-> **🎯 Goal:** Verify everything works before going live
-
-### 🚀 The Moment of Truth
-
-![Test](https://img.shields.io/badge/🧪_Mode-Live_Testing-yellow?style=flat-square)
-
-**Send test data to your webhook:**
-
-1. **In Zapier:** Click **"Test trigger"**
-2. **New browser tab:** Build your test URL
+### ✅ Step 3: Prepare a Google Sheet
+1. Open [Google Sheets](https://sheets.google.com)
+2. Create a new sheet named `Workshop Submissions`
+3. In Row 1, set headers exactly like this:
    ```
-   https://hooks.zapier.com/hooks/catch/YOUR_ID/YOUR_TOKEN/?email=test@example.com&name=Test%20User
+   A1: Name
+   B1: Email
+   C1: Message
    ```
-3. **Visit the URL** (just paste and hit Enter)
-4. **Back in Zapier:** Continue
+4. (Optional) Add one dummy row of data under the headers for testing
+5. Leave the sheet open — you’ll select it in a moment
 
-<details>
-<summary><b>🎯 URL Parameter Guide</b></summary>
+---
 
-**Basic test URL:**
-```
-your_webhook_url?email=test@example.com&name=Test%20User
-```
+### ✅ Step 4: Add Google Sheets as the Action
+1. Click the **next +** on the canvas
+2. Search: **Google Sheets**
+3. Select: **Add a Row**
+4. Click **Add** to connect your Google account
+5. Choose the correct spreadsheet and sheet tab
+6. Map each field from the webhook payload to its corresponding column:
+   - `Name` → `Name`
+   - `Email` → `Email`
+   - `Message` → `Message`
 
-**With all fields:**
-```
-your_webhook_url?email=test@example.com&name=Test%20User&message=This%20is%20a%20test
-```
+---
 
-**Special characters:**
-- Space = `%20` or `+`
-- @ = `%40` (but usually works as-is)
-- & = `%26` (to include in value)
+### ✅ Step 5: Test the Webhook
+1. Click the **Run Once** button in Make
+2. Use [https://webhook.site](https://webhook.site), Postman, or a simple curl command to post this payload:
+   ```json
+   {
+     "Name": "Ada Lovelace",
+     "Email": "ada@engine.io",
+     "Message": "Excited to join the workshop!"
+   }
+   ```
+3. After Make receives the data, it should auto-detect the fields and send them to Google Sheets
 
-**Multiple test scenarios:**
-```bash
-# Minimal data
-?email=simple@test.com
+---
 
-# Full data
-?email=full@test.com&name=Full%20Test&message=Complete%20test
+### ✅ Step 6: Activate the Scenario
+1. Click the **ON/OFF switch** at the bottom left of the screen to **Activate** the scenario
+2. Done — your webhook is now live and posting rows to Google Sheets!
 
-# Edge cases
-?email=weird+email@sub.domain.com&name=O'Brien
-```
-
-</details>
 
 ---
 
@@ -420,17 +317,15 @@ your_webhook_url?email=test@example.com&name=Test%20User&message=This%20is%20a%2
 
 **Data not in Sheet:**
 - ✅ Refresh the Google Sheet
-- ✅ Check Zap is turned ON
+- ✅ Check Make Scenario is turned ON
 - ✅ Verify correct sheet selected
-- ✅ Look at "Task History" in Zapier
 
 **Wrong timestamp:**
-- ✅ Change `{{timestamp}}` to `{{zap_meta_human_now}}`
-- ✅ Check timezone in Zapier settings
+- ✅ Check timezone in Make settings
 - ✅ Use custom format if needed
 
 **Webhook URL lost:**
-- Go to your Zap
+- Go to your Scenario
 - Click on webhook trigger
 - Find URL in trigger settings
 - Can't change it once created!
