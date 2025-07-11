@@ -36,7 +36,7 @@
 
 ---
 
-Luke just covered some core concepts around validating an idea, but for tonight: where do we start? Here's some prompts to help you out:
+[Luke just covered some core concepts around validating an idea](https://docs.google.com/presentation/d/1bGIlcsH6-XetlBegc7roxrh7SyBUvYQ-jVuSjJazYpE/edit?usp=sharing), but for tonight: where do we start? Here's some prompts to help you out:
 
 ---
 
